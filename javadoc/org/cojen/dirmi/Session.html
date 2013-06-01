@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>Session (Dirmi 1.0 API)</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Session (Dirmi 1.0 API)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Session.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-all.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../org/cojen/dirmi/Response.html" title="class in org.cojen.dirmi"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../org/cojen/dirmi/SessionAcceptor.html" title="interface in org.cojen.dirmi"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../index.html?org/cojen/dirmi/Session.html" target="_top">Frames</a></li>
+<li><a href="Session.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.cojen.dirmi</div>
+<h2 title="Interface Session" class="title">Interface Session</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Superinterfaces:</dt>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html?is-external=true" title="class or interface in java.io">Flushable</a>, <a href="../../../org/cojen/dirmi/Link.html" title="interface in org.cojen.dirmi">Link</a></dd>
+</dl>
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><a href="../../../org/cojen/dirmi/core/StandardSession.html" title="class in org.cojen.dirmi.core">StandardSession</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public interface <span class="strong">Session</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html?is-external=true" title="class or interface in java.io">Flushable</a>, <a href="../../../org/cojen/dirmi/Link.html" title="interface in org.cojen.dirmi">Link</a></pre>
+<div class="block">Remote method invocation session. Basic communication between sessions is
+ provided by the <a href="../../../org/cojen/dirmi/Session.html#send(java.lang.Object)"><code>send</code></a> and <a href="../../../org/cojen/dirmi/Session.html#receive()"><code>receive</code></a> methods,
+ which behave like a blocking queue with a capacity of one. Object transport
+ via this interface is intended for handshaking and authentication. After an
+ initial exchange, remote objects should be used for most communication
+ between endpoints.
+
+ <p>The send/receive methods follow the pull model rather than the push
+ model. Calling <code>send</code> locally enqueues an object, but <code>receive</code>
+ makes a remote call. This behavior allows a <a href="../../../org/cojen/dirmi/Session.html#setClassResolver(org.cojen.dirmi.ClassResolver)"><code>ClassResolver</code></a> to be installed prior to its first use, avoiding race
+ conditions.</div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Brian S O'Neill</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/dirmi/Environment.html" title="class in org.cojen.dirmi"><code>Environment</code></a></dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#addCloseListener(org.cojen.dirmi.SessionCloseListener)">addCloseListener</a></strong>(<a href="../../../org/cojen/dirmi/SessionCloseListener.html" title="interface in org.cojen.dirmi">SessionCloseListener</a>&nbsp;listener)</code>
+<div class="block">Add a listener which receives notification when this session is
+ closed.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#close()">close</a></strong>()</code>
+<div class="block">Closes the session.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#flush()">flush</a></strong>()</code>
+<div class="block">Flushes all channels of this session, including channels used for <a href="../../../org/cojen/dirmi/Batched.html" title="annotation in org.cojen.dirmi"><code>batch</code></a> calls and <a href="../../../org/cojen/dirmi/CallMode.html#EVENTUAL"><code>eventual</code></a> asynchronous
+ methods.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#getLocalAddress()">getLocalAddress</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#getRemoteAddress()">getRemoteAddress</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#receive()">receive</a></strong>()</code>
+<div class="block">Receives a <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi"><code>Remote</code></a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> object sent by the
+ remote session.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#receive(long, java.util.concurrent.TimeUnit)">receive</a></strong>(long&nbsp;timeout,
+       <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
+<div class="block">Receives a <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi"><code>Remote</code></a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> object sent by the
+ remote session.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#send(java.lang.Object)">send</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)</code>
+<div class="block">Sends a <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi"><code>Remote</code></a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> object to be received by
+ the remote session.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#send(java.lang.Object, long, java.util.concurrent.TimeUnit)">send</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj,
+    long&nbsp;timeout,
+    <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
+<div class="block">Sends a <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi"><code>Remote</code></a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> object to be received by
+ the remote session.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#setClassLoader(java.lang.ClassLoader)">setClassLoader</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;loader)</code>
+<div class="block">Convenience method to use a ClassLoader for resolving classes.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/dirmi/Session.html#setClassResolver(org.cojen.dirmi.ClassResolver)">setClassResolver</a></strong>(<a href="../../../org/cojen/dirmi/ClassResolver.html" title="interface in org.cojen.dirmi">ClassResolver</a>&nbsp;resolver)</code>
+<div class="block">Can be called at most once to control how deserialized classes and
+ remote interfaces are resolved.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getLocalAddress()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLocalAddress</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getLocalAddress()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/dirmi/Link.html#getLocalAddress()">getLocalAddress</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/dirmi/Link.html" title="interface in org.cojen.dirmi">Link</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>local session address or null if unknown or not applicable</dd></dl>
+</li>
+</ul>
+<a name="getRemoteAddress()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRemoteAddress</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getRemoteAddress()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/dirmi/Link.html#getRemoteAddress()">getRemoteAddress</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/dirmi/Link.html" title="interface in org.cojen.dirmi">Link</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>remote session address or null if unknown or not applicable</dd></dl>
+</li>
+</ul>
+<a name="send(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>send</h4>
+<pre>void&nbsp;send(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)
+          throws <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></pre>
+<div class="block">Sends a <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi"><code>Remote</code></a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> object to be received by
+ the remote session. Any failure during the send forces the session to be
+ closed.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>obj</code> - remote or serializable object to send; can be null</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></code></dd></dl>
+</li>
+</ul>
+<a name="send(java.lang.Object, long, java.util.concurrent.TimeUnit)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>send</h4>
+<pre>void&nbsp;send(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj,
+        long&nbsp;timeout,
+        <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)
+          throws <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></pre>
+<div class="block">Sends a <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi"><code>Remote</code></a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> object to be received by
+ the remote session. Any failure or timeout during the send forces the
+ session to be closed.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>obj</code> - remote or serializable object to send; can be null</dd><dd><code>timeout</code> - how long to wait before timing out, in units of <code>unit</code></dd><dd><code>unit</code> - a <code>TimeUnit</code> determining how to interpret the <code>timeout</code> parameter</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/cojen/dirmi/RemoteTimeoutException.html" title="class in org.cojen.dirmi">RemoteTimeoutException</a></code> - if timeout elapses</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></code></dd></dl>
+</li>
+</ul>
+<a name="receive()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>receive</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;receive()
+               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></pre>
+<div class="block">Receives a <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi"><code>Remote</code></a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> object sent by the
+ remote session. Any failure during the receive forces the session to be
+ closed.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>remote or serializable object from remote session; can be null</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></code></dd></dl>
+</li>
+</ul>
+<a name="receive(long, java.util.concurrent.TimeUnit)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>receive</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;receive(long&nbsp;timeout,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)
+               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></pre>
+<div class="block">Receives a <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi"><code>Remote</code></a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> object sent by the
+ remote session. Any failure or timeout during the receive forces the
+ session to be closed.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeout</code> - how long to wait before timing out, in units of <code>unit</code></dd><dd><code>unit</code> - a <code>TimeUnit</code> determining how to interpret the <code>timeout</code> parameter</dd>
+<dt><span class="strong">Returns:</span></dt><dd>remote or serializable object from remote session; can be null</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/cojen/dirmi/RemoteTimeoutException.html" title="class in org.cojen.dirmi">RemoteTimeoutException</a></code> - if timeout elapses</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></code></dd></dl>
+</li>
+</ul>
+<a name="addCloseListener(org.cojen.dirmi.SessionCloseListener)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addCloseListener</h4>
+<pre>void&nbsp;addCloseListener(<a href="../../../org/cojen/dirmi/SessionCloseListener.html" title="interface in org.cojen.dirmi">SessionCloseListener</a>&nbsp;listener)</pre>
+<div class="block">Add a listener which receives notification when this session is
+ closed. Listener is called at most once, and then it is unregistered.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if listener is null</dd></dl>
+</li>
+</ul>
+<a name="setClassResolver(org.cojen.dirmi.ClassResolver)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setClassResolver</h4>
+<pre>void&nbsp;setClassResolver(<a href="../../../org/cojen/dirmi/ClassResolver.html" title="interface in org.cojen.dirmi">ClassResolver</a>&nbsp;resolver)</pre>
+<div class="block">Can be called at most once to control how deserialized classes and
+ remote interfaces are resolved. If the implemention chooses to remotely
+ download classes, it is strongly recommended that a security manager be
+ installed. Resolver implementation may choose to enforce this
+ restriction.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>resolver</code> - resolves deserialized classes and interfaces; pass null
+ to always use default resolver</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if resolver cannot be changed</dd></dl>
+</li>
+</ul>
+<a name="setClassLoader(java.lang.ClassLoader)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setClassLoader</h4>
+<pre>void&nbsp;setClassLoader(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;loader)</pre>
+<div class="block">Convenience method to use a ClassLoader for resolving classes.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>loader</code> - resolves deserialized classes and interfaces; pass null
+ to always use default resolver</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if resolver cannot be changed</dd></dl>
+</li>
+</ul>
+<a name="flush()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>flush</h4>
+<pre>void&nbsp;flush()
+           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Flushes all channels of this session, including channels used for <a href="../../../org/cojen/dirmi/Batched.html" title="annotation in org.cojen.dirmi"><code>batch</code></a> calls and <a href="../../../org/cojen/dirmi/CallMode.html#EVENTUAL"><code>eventual</code></a> asynchronous
+ methods.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html?is-external=true#flush()" title="class or interface in java.io">flush</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html?is-external=true" title="class or interface in java.io">Flushable</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="close()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>close</h4>
+<pre>void&nbsp;close()
+           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Closes the session.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a></code></dd>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true#close()" title="class or interface in java.io">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Session.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-all.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../org/cojen/dirmi/Response.html" title="class in org.cojen.dirmi"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../org/cojen/dirmi/SessionAcceptor.html" title="interface in org.cojen.dirmi"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../index.html?org/cojen/dirmi/Session.html" target="_top">Frames</a></li>
+<li><a href="Session.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &#169; 2006-2013 <a href="https://github.com/cojen">Cojen</a>. All Rights Reserved.</small></p>
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>ScopedTraceHandler (Dirmi 1.0 API)</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ScopedTraceHandler (Dirmi 1.0 API)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ScopedTraceHandler.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/cojen/dirmi/trace/NullHandler.html" title="class in org.cojen.dirmi.trace"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.MethodData.html" title="class in org.cojen.dirmi.trace"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/cojen/dirmi/trace/ScopedTraceHandler.html" target="_top">Frames</a></li>
+<li><a href="ScopedTraceHandler.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested_class_summary">Nested</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.cojen.dirmi.trace</div>
+<h2 title="Class ScopedTraceHandler" class="title">Class ScopedTraceHandler</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.cojen.dirmi.trace.ScopedTraceHandler</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../org/cojen/dirmi/trace/SimpleHandler.html" title="class in org.cojen.dirmi.trace">SimpleHandler</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public abstract class <span class="strong">ScopedTraceHandler</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></pre>
+<div class="block">Abstract trace handler which gathers data on traced methods and reports it
+ upon scope exit. A scope is created when a thread enters a traced method for
+ the first time. If the traced method is marked as root, then a child scope
+ is created. A traced method marked as graft cannot create scopes -- it can
+ only participate in existing ones.
+
+ <p>When the traced method that created the scope exits, the scope exits, and
+ gathered data is reported. If a parent scope exists, this data is
+ transferred to it as well.</div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Brian S O'Neill</dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested_class_summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.MethodData.html" title="class in org.cojen.dirmi.trace">ScopedTraceHandler.MethodData</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.Scope.html" title="class in org.cojen.dirmi.trace">ScopedTraceHandler.Scope</a></strong></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#ScopedTraceHandler(org.cojen.dirmi.trace.TraceToolbox)">ScopedTraceHandler</a></strong>(<a href="../../../../org/cojen/dirmi/trace/TraceToolbox.html" title="class in org.cojen.dirmi.trace">TraceToolbox</a>&nbsp;toolbox)</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#enterMethod(int)">enterMethod</a></strong>(int&nbsp;mid)</code>
+<div class="block">Called by a traced method upon entry.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#enterMethod(int, java.lang.Object...)">enterMethod</a></strong>(int&nbsp;mid,
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;arguments)</code>
+<div class="block">Called by a traced method upon entry.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#enterMethod(int, java.lang.Object)">enterMethod</a></strong>(int&nbsp;mid,
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;argument)</code>
+<div class="block">Called by a traced method upon entry.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#exitMethod(int)">exitMethod</a></strong>(int&nbsp;mid)</code>
+<div class="block">Called by a traced method upon exit.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#exitMethod(int, long)">exitMethod</a></strong>(int&nbsp;mid,
+          long&nbsp;timeNanos)</code>
+<div class="block">Called by a traced method upon exit.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#exitMethod(int, java.lang.Object)">exitMethod</a></strong>(int&nbsp;mid,
+          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;result)</code>
+<div class="block">Called by a traced method upon exit.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#exitMethod(int, java.lang.Object, long)">exitMethod</a></strong>(int&nbsp;mid,
+          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;result,
+          long&nbsp;timeNanos)</code>
+<div class="block">Called by a traced method upon exit.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#exitMethod(int, java.lang.Throwable)">exitMethod</a></strong>(int&nbsp;mid,
+          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;t)</code>
+<div class="block">Called by a traced method upon exit caused by a thrown exception.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#exitMethod(int, java.lang.Throwable, long)">exitMethod</a></strong>(int&nbsp;mid,
+          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;t,
+          long&nbsp;timeNanos)</code>
+<div class="block">Called by a traced method upon exit caused by a thrown exception.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/cojen/dirmi/trace/TraceToolbox.html" title="class in org.cojen.dirmi.trace">TraceToolbox</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#getToolbox()">getToolbox</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/dirmi/trace/TraceModes.html" title="class in org.cojen.dirmi.trace">TraceModes</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#getTraceModes(java.lang.String)">getTraceModes</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</code>
+<div class="block">Always returns <a href="../../../../org/cojen/dirmi/trace/TraceModes.html#ALL_USER"><code>TraceModes.ALL_USER</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#report(org.cojen.dirmi.trace.ScopedTraceHandler.Scope)">report</a></strong>(<a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.Scope.html" title="class in org.cojen.dirmi.trace">ScopedTraceHandler.Scope</a>&nbsp;scope)</code>
+<div class="block">Called when a scope exits, allowing subclasses to report on the data it
+ gathered.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#scopeGet(java.lang.String)">scopeGet</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</code>
+<div class="block">Retrieve an arbitrary key-value pair from the current scope, unless
+ there is no current scope.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.html#scopePut(java.lang.String, java.lang.Object)">scopePut</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
+        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
+<div class="block">Add an arbitrary key-value pair to the current scope, unless there is no
+ current scope.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="ScopedTraceHandler(org.cojen.dirmi.trace.TraceToolbox)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ScopedTraceHandler</h4>
+<pre>public&nbsp;ScopedTraceHandler(<a href="../../../../org/cojen/dirmi/trace/TraceToolbox.html" title="class in org.cojen.dirmi.trace">TraceToolbox</a>&nbsp;toolbox)</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getTraceModes(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTraceModes</h4>
+<pre>public&nbsp;<a href="../../../../org/cojen/dirmi/trace/TraceModes.html" title="class in org.cojen.dirmi.trace">TraceModes</a>&nbsp;getTraceModes(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</pre>
+<div class="block">Always returns <a href="../../../../org/cojen/dirmi/trace/TraceModes.html#ALL_USER"><code>TraceModes.ALL_USER</code></a>.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#getTraceModes(java.lang.String)">getTraceModes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>className</code> - full name of class which may contain traced methods</dd>
+<dt><span class="strong">Returns:</span></dt><dd>modes or null if none allowed</dd></dl>
+</li>
+</ul>
+<a name="enterMethod(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>enterMethod</h4>
+<pre>public&nbsp;void&nbsp;enterMethod(int&nbsp;mid)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#enterMethod(int)">TraceHandler</a></code></strong></div>
+<div class="block">Called by a traced method upon entry.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#enterMethod(int)">enterMethod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>mid</code> - method id</dd></dl>
+</li>
+</ul>
+<a name="enterMethod(int, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>enterMethod</h4>
+<pre>public&nbsp;void&nbsp;enterMethod(int&nbsp;mid,
+               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;argument)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#enterMethod(int, java.lang.Object)">TraceHandler</a></code></strong></div>
+<div class="block">Called by a traced method upon entry. This method is never called if the
+ trace was not configured to pass arguments or if the traced method has
+ no arguments.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#enterMethod(int, java.lang.Object)">enterMethod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>mid</code> - method id</dd><dd><code>argument</code> - argument passed to method; is "this" for non-static method</dd></dl>
+</li>
+</ul>
+<a name="enterMethod(int, java.lang.Object...)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>enterMethod</h4>
+<pre>public&nbsp;void&nbsp;enterMethod(int&nbsp;mid,
+               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;arguments)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#enterMethod(int, java.lang.Object...)">TraceHandler</a></code></strong></div>
+<div class="block">Called by a traced method upon entry. This method is never called if the
+ trace was not configured to pass arguments or if the traced method has
+ no arguments.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#enterMethod(int, java.lang.Object...)">enterMethod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>mid</code> - method id</dd><dd><code>arguments</code> - arguments passed to method; first is "this" for non-static method</dd></dl>
+</li>
+</ul>
+<a name="exitMethod(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>exitMethod</h4>
+<pre>public&nbsp;void&nbsp;exitMethod(int&nbsp;mid)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int)">TraceHandler</a></code></strong></div>
+<div class="block">Called by a traced method upon exit.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int)">exitMethod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>mid</code> - method id</dd></dl>
+</li>
+</ul>
+<a name="exitMethod(int, long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>exitMethod</h4>
+<pre>public&nbsp;void&nbsp;exitMethod(int&nbsp;mid,
+              long&nbsp;timeNanos)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, long)">TraceHandler</a></code></strong></div>
+<div class="block">Called by a traced method upon exit. This method is never called if the
+ trace was not configured to measure execution time.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, long)">exitMethod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>mid</code> - method id</dd><dd><code>timeNanos</code> - total execution time of method, in nanoseconds</dd></dl>
+</li>
+</ul>
+<a name="exitMethod(int, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>exitMethod</h4>
+<pre>public&nbsp;void&nbsp;exitMethod(int&nbsp;mid,
+              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;result)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, java.lang.Object)">TraceHandler</a></code></strong></div>
+<div class="block">Called by a traced method upon exit. This method is never called if the
+ trace was not configured to pass return values or if the traced method
+ returns void.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, java.lang.Object)">exitMethod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>mid</code> - method id</dd><dd><code>result</code> - method return value</dd></dl>
+</li>
+</ul>
+<a name="exitMethod(int, java.lang.Object, long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>exitMethod</h4>
+<pre>public&nbsp;void&nbsp;exitMethod(int&nbsp;mid,
+              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;result,
+              long&nbsp;timeNanos)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, java.lang.Object, long)">TraceHandler</a></code></strong></div>
+<div class="block">Called by a traced method upon exit. This method is never called if the
+ trace was not configured to pass return values and measure execution
+ time.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, java.lang.Object, long)">exitMethod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>mid</code> - method id</dd><dd><code>result</code> - method return value</dd><dd><code>timeNanos</code> - total execution time of method, in nanoseconds</dd></dl>
+</li>
+</ul>
+<a name="exitMethod(int, java.lang.Throwable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>exitMethod</h4>
+<pre>public&nbsp;void&nbsp;exitMethod(int&nbsp;mid,
+              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;t)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, java.lang.Throwable)">TraceHandler</a></code></strong></div>
+<div class="block">Called by a traced method upon exit caused by a thrown exception. This
+ method is never called if the trace was not configured to pass thrown
+ exceptions.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, java.lang.Throwable)">exitMethod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>mid</code> - method id</dd><dd><code>t</code> - exception thrown by method</dd></dl>
+</li>
+</ul>
+<a name="exitMethod(int, java.lang.Throwable, long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>exitMethod</h4>
+<pre>public&nbsp;void&nbsp;exitMethod(int&nbsp;mid,
+              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;t,
+              long&nbsp;timeNanos)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, java.lang.Throwable, long)">TraceHandler</a></code></strong></div>
+<div class="block">Called by a traced method upon exit caused by a thrown exception. This
+ method is never called if the trace was not configured to pass thrown
+ exceptions and measure execution time.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html#exitMethod(int, java.lang.Throwable, long)">exitMethod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/cojen/dirmi/trace/TraceHandler.html" title="interface in org.cojen.dirmi.trace">TraceHandler</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>mid</code> - method id</dd><dd><code>t</code> - exception thrown by method</dd><dd><code>timeNanos</code> - total execution time of method, in nanoseconds</dd></dl>
+</li>
+</ul>
+<a name="getToolbox()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getToolbox</h4>
+<pre>protected&nbsp;<a href="../../../../org/cojen/dirmi/trace/TraceToolbox.html" title="class in org.cojen.dirmi.trace">TraceToolbox</a>&nbsp;getToolbox()</pre>
+</li>
+</ul>
+<a name="scopePut(java.lang.String, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>scopePut</h4>
+<pre>protected&nbsp;boolean&nbsp;scopePut(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
+               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+<div class="block">Add an arbitrary key-value pair to the current scope, unless there is no
+ current scope.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true if in a scope</dd></dl>
+</li>
+</ul>
+<a name="scopeGet(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>scopeGet</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;scopeGet(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</pre>
+<div class="block">Retrieve an arbitrary key-value pair from the current scope, unless
+ there is no current scope.</div>
+</li>
+</ul>
+<a name="report(org.cojen.dirmi.trace.ScopedTraceHandler.Scope)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>report</h4>
+<pre>protected abstract&nbsp;void&nbsp;report(<a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.Scope.html" title="class in org.cojen.dirmi.trace">ScopedTraceHandler.Scope</a>&nbsp;scope)</pre>
+<div class="block">Called when a scope exits, allowing subclasses to report on the data it
+ gathered.</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ScopedTraceHandler.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/cojen/dirmi/trace/NullHandler.html" title="class in org.cojen.dirmi.trace"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/cojen/dirmi/trace/ScopedTraceHandler.MethodData.html" title="class in org.cojen.dirmi.trace"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/cojen/dirmi/trace/ScopedTraceHandler.html" target="_top">Frames</a></li>
+<li><a href="ScopedTraceHandler.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested_class_summary">Nested</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &#169; 2006-2013 <a href="https://github.com/cojen">Cojen</a>. All Rights Reserved.</small></p>
+</body>
+</html>

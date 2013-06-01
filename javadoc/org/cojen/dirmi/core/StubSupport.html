@@ -1,0 +1,622 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>StubSupport (Dirmi 1.0 API)</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="StubSupport (Dirmi 1.0 API)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/StubSupport.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/cojen/dirmi/core/StubFactoryGenerator.html" title="class in org.cojen.dirmi.core"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/cojen/dirmi/core/VersionedIdentifier.html" title="class in org.cojen.dirmi.core"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/cojen/dirmi/core/StubSupport.html" target="_top">Frames</a></li>
+<li><a href="StubSupport.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.cojen.dirmi.core</div>
+<h2 title="Interface StubSupport" class="title">Interface StubSupport</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public interface <span class="strong">StubSupport</span></pre>
+<div class="block">Object passed to a Stub instance in order for it to actually communicate
+ with a remote object.</div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Brian S O'Neill</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/cojen/dirmi/core/StubFactory.html" title="interface in org.cojen.dirmi.core"><code>StubFactory</code></a></dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#batched(org.cojen.dirmi.core.InvocationChannel)">batched</a></strong>(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</code>
+<div class="block">Called after batched request is sent over channel and current thread
+ should hold channel.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#batchedAndCancelTimeout(org.cojen.dirmi.core.InvocationChannel)">batchedAndCancelTimeout</a></strong>(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</code>
+<div class="block">Called after batched request is sent over channel and current thread
+ should hold channel.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>,R extends <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi">Remote</a>&gt;&nbsp;<br>R</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#createBatchedRemote(java.lang.Class, org.cojen.dirmi.core.InvocationChannel, java.lang.Class)">createBatchedRemote</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+                   <a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+                   <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;R&gt;&nbsp;type)</code>
+<div class="block">Used by batched methods which return a Remote object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&lt;V&gt;&nbsp;<a href="../../../../org/cojen/dirmi/Completion.html" title="interface in org.cojen.dirmi">Completion</a>&lt;V&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#createCompletion(java.lang.Object)">createCompletion</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;stub)</code>
+<div class="block">Used by asynchronous methods which return a Future or Completion.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/dirmi/core/StubSupport.html" title="interface in org.cojen.dirmi.core">StubSupport</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#dispose()">dispose</a></strong>()</code>
+<div class="block">Returns a StubSupport instance which throws NoSuchObjectException for
+ all of the above methods.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;<br>T</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#failed(java.lang.Class, org.cojen.dirmi.core.InvocationChannel, java.lang.Throwable)">failed</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+      <a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</code>
+<div class="block">Called if invocation failed due to a problem with the channel, and it
+ should be closed.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;<br>T</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#failedAndCancelTimeout(java.lang.Class, org.cojen.dirmi.core.InvocationChannel, java.lang.Throwable, double, java.util.concurrent.TimeUnit)">failedAndCancelTimeout</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+                      <a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause,
+                      double&nbsp;timeout,
+                      <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
+<div class="block">Called if invocation failed due to a problem with the channel, and it
+ should be closed.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;<br>T</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#failedAndCancelTimeout(java.lang.Class, org.cojen.dirmi.core.InvocationChannel, java.lang.Throwable, long, java.util.concurrent.TimeUnit)">failedAndCancelTimeout</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+                      <a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause,
+                      long&nbsp;timeout,
+                      <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
+<div class="block">Called if invocation failed due to a problem with the channel, and it
+ should be closed.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#finished(org.cojen.dirmi.core.InvocationChannel, boolean)">finished</a></strong>(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+        boolean&nbsp;reset)</code>
+<div class="block">Called after channel usage is finished and can be reused for sending
+ new requests.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#finishedAndCancelTimeout(org.cojen.dirmi.core.InvocationChannel, boolean)">finishedAndCancelTimeout</a></strong>(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+                        boolean&nbsp;reset)</code>
+<div class="block">Called after channel usage is finished and can be reused for sending
+ new requests.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;<br><a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#invoke(java.lang.Class)">invoke</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException)</code>
+<div class="block">Writes request header to a free channel.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;<br><a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#invoke(java.lang.Class, double, java.util.concurrent.TimeUnit)">invoke</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+      double&nbsp;timeout,
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
+<div class="block">Writes request header to free channel.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;<br><a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#invoke(java.lang.Class, long, java.util.concurrent.TimeUnit)">invoke</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+      long&nbsp;timeout,
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
+<div class="block">Writes request header to a free channel.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#rebatch(org.cojen.dirmi.core.InvocationChannel)">rebatch</a></strong>(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</code>
+<div class="block">Called by unbatched methods to re-instate a thread-local channel.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#release(org.cojen.dirmi.core.InvocationChannel)">release</a></strong>(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</code>
+<div class="block">Called if channel is to be used for returning a Pipe.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/dirmi/Pipe.html" title="interface in org.cojen.dirmi">Pipe</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#requestReply(org.cojen.dirmi.core.InvocationChannel)">requestReply</a></strong>(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</code>
+<div class="block">Called if channel is to be used for returning a request-reply Pipe.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/dirmi/Link.html" title="interface in org.cojen.dirmi">Link</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#sessionLink()">sessionLink</a></strong>()</code>
+<div class="block">Returns a link to the session that stub is bound to.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#stubEquals(org.cojen.dirmi.core.StubSupport)">stubEquals</a></strong>(<a href="../../../../org/cojen/dirmi/core/StubSupport.html" title="interface in org.cojen.dirmi.core">StubSupport</a>&nbsp;support)</code>
+<div class="block">Returns a partial equals implementation for the Stub.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#stubHashCode()">stubHashCode</a></strong>()</code>
+<div class="block">Returns a hashCode implementation for the Stub.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#stubToString()">stubToString</a></strong>()</code>
+<div class="block">Returns a partial toString implementation for the Stub.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/dirmi/core/StubSupport.html#unbatch()">unbatch</a></strong>()</code>
+<div class="block">Called by unbatched methods to temporarily release a thread-local channel.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="sessionLink()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sessionLink</h4>
+<pre><a href="../../../../org/cojen/dirmi/Link.html" title="interface in org.cojen.dirmi">Link</a>&nbsp;sessionLink()</pre>
+<div class="block">Returns a link to the session that stub is bound to.</div>
+</li>
+</ul>
+<a name="unbatch()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>unbatch</h4>
+<pre><a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;unbatch()</pre>
+<div class="block">Called by unbatched methods to temporarily release a thread-local channel.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>null if no batch is in progress</dd></dl>
+</li>
+</ul>
+<a name="rebatch(org.cojen.dirmi.core.InvocationChannel)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>rebatch</h4>
+<pre>void&nbsp;rebatch(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</pre>
+<div class="block">Called by unbatched methods to re-instate a thread-local channel.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>channel</code> - channel returned by unbatch; can be null</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if a thread-local channel already exists</dd></dl>
+</li>
+</ul>
+<a name="invoke(java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;invoke(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException)
+                         throws T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
+<div class="block">Writes request header to a free channel. Caller chooses to flush output
+ after arguments are written and then reads channel.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>channel for writing arguments and reading response</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code></dd></dl>
+</li>
+</ul>
+<a name="invoke(java.lang.Class, long, java.util.concurrent.TimeUnit)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;invoke(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+                                             long&nbsp;timeout,
+                                             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)
+                         throws T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
+<div class="block">Writes request header to a free channel. Caller chooses to flush output
+ after arguments are written and then reads channel.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>channel for writing arguments and reading response</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code></dd></dl>
+</li>
+</ul>
+<a name="invoke(java.lang.Class, double, java.util.concurrent.TimeUnit)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;invoke(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+                                             double&nbsp;timeout,
+                                             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)
+                         throws T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
+<div class="block">Writes request header to free channel. Caller chooses to flush output
+ after arguments are written and then reads channel.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>channel for writing arguments and reading response</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code></dd></dl>
+</li>
+</ul>
+<a name="createCompletion(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createCompletion</h4>
+<pre>&lt;V&gt;&nbsp;<a href="../../../../org/cojen/dirmi/Completion.html" title="interface in org.cojen.dirmi">Completion</a>&lt;V&gt;&nbsp;createCompletion(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;stub)</pre>
+<div class="block">Used by asynchronous methods which return a Future or Completion.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>stub</code> - pass stub instance to prevent remote object from being
+ identified as unreferenced</dd>
+<dt><span class="strong">Returns:</span></dt><dd>completion which also implements RemoteCompletion</dd></dl>
+</li>
+</ul>
+<a name="createBatchedRemote(java.lang.Class, org.cojen.dirmi.core.InvocationChannel, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createBatchedRemote</h4>
+<pre>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>,R extends <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/Remote.html?is-external=true" title="class or interface in java.rmi">Remote</a>&gt;&nbsp;R&nbsp;createBatchedRemote(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+                                                           <a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+                                                           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;R&gt;&nbsp;type)
+                                     throws T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
+<div class="block">Used by batched methods which return a Remote object. This method writes
+ an identifier to the channel, and returns a remote object of the
+ requested type.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>type</code> - type of remote object returned by batched method</dd>
+<dt><span class="strong">Returns:</span></dt><dd>stub for remote object</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code></dd></dl>
+</li>
+</ul>
+<a name="batched(org.cojen.dirmi.core.InvocationChannel)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>batched</h4>
+<pre>void&nbsp;batched(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</pre>
+<div class="block">Called after batched request is sent over channel and current thread
+ should hold channel. This method should not throw any exception.</div>
+</li>
+</ul>
+<a name="batchedAndCancelTimeout(org.cojen.dirmi.core.InvocationChannel)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>batchedAndCancelTimeout</h4>
+<pre>void&nbsp;batchedAndCancelTimeout(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</pre>
+<div class="block">Called after batched request is sent over channel and current thread
+ should hold channel. This method should not throw any exception.</div>
+</li>
+</ul>
+<a name="release(org.cojen.dirmi.core.InvocationChannel)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>release</h4>
+<pre>void&nbsp;release(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</pre>
+<div class="block">Called if channel is to be used for returning a Pipe. This method
+ should not throw any exception.</div>
+</li>
+</ul>
+<a name="requestReply(org.cojen.dirmi.core.InvocationChannel)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>requestReply</h4>
+<pre><a href="../../../../org/cojen/dirmi/Pipe.html" title="interface in org.cojen.dirmi">Pipe</a>&nbsp;requestReply(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel)</pre>
+<div class="block">Called if channel is to be used for returning a request-reply Pipe. This
+ method should not throw any exception.</div>
+</li>
+</ul>
+<a name="finished(org.cojen.dirmi.core.InvocationChannel, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>finished</h4>
+<pre>void&nbsp;finished(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+            boolean&nbsp;reset)</pre>
+<div class="block">Called after channel usage is finished and can be reused for sending
+ new requests. This method should not throw any exception.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>reset</code> - pass true if object output should be reset</dd></dl>
+</li>
+</ul>
+<a name="finishedAndCancelTimeout(org.cojen.dirmi.core.InvocationChannel, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>finishedAndCancelTimeout</h4>
+<pre>void&nbsp;finishedAndCancelTimeout(<a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+                            boolean&nbsp;reset)</pre>
+<div class="block">Called after channel usage is finished and can be reused for sending
+ new requests. This method should not throw any exception.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>reset</code> - pass true if object output should be reset</dd></dl>
+</li>
+</ul>
+<a name="failed(java.lang.Class, org.cojen.dirmi.core.InvocationChannel, java.lang.Throwable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>failed</h4>
+<pre>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;T&nbsp;failed(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+                             <a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</pre>
+<div class="block">Called if invocation failed due to a problem with the channel, and it
+ should be closed. This method should not throw any exception, however it
+ must return an appropriate Throwable which will get thrown to the client.</div>
+</li>
+</ul>
+<a name="failedAndCancelTimeout(java.lang.Class, org.cojen.dirmi.core.InvocationChannel, java.lang.Throwable, long, java.util.concurrent.TimeUnit)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>failedAndCancelTimeout</h4>
+<pre>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;T&nbsp;failedAndCancelTimeout(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+                                             <a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+                                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause,
+                                             long&nbsp;timeout,
+                                             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</pre>
+<div class="block">Called if invocation failed due to a problem with the channel, and it
+ should be closed. This method should not throw any exception, however it
+ must return an appropriate Throwable which will get thrown to the client.</div>
+</li>
+</ul>
+<a name="failedAndCancelTimeout(java.lang.Class, org.cojen.dirmi.core.InvocationChannel, java.lang.Throwable, double, java.util.concurrent.TimeUnit)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>failedAndCancelTimeout</h4>
+<pre>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;T&nbsp;failedAndCancelTimeout(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;remoteFailureException,
+                                             <a href="../../../../org/cojen/dirmi/core/InvocationChannel.html" title="interface in org.cojen.dirmi.core">InvocationChannel</a>&nbsp;channel,
+                                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause,
+                                             double&nbsp;timeout,
+                                             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</pre>
+<div class="block">Called if invocation failed due to a problem with the channel, and it
+ should be closed. This method should not throw any exception, however it
+ must return an appropriate Throwable which will get thrown to the client.</div>
+</li>
+</ul>
+<a name="dispose()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>dispose</h4>
+<pre><a href="../../../../org/cojen/dirmi/core/StubSupport.html" title="interface in org.cojen.dirmi.core">StubSupport</a>&nbsp;dispose()</pre>
+<div class="block">Returns a StubSupport instance which throws NoSuchObjectException for
+ all of the above methods.</div>
+</li>
+</ul>
+<a name="stubHashCode()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>stubHashCode</h4>
+<pre>int&nbsp;stubHashCode()</pre>
+<div class="block">Returns a hashCode implementation for the Stub.</div>
+</li>
+</ul>
+<a name="stubEquals(org.cojen.dirmi.core.StubSupport)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>stubEquals</h4>
+<pre>boolean&nbsp;stubEquals(<a href="../../../../org/cojen/dirmi/core/StubSupport.html" title="interface in org.cojen.dirmi.core">StubSupport</a>&nbsp;support)</pre>
+<div class="block">Returns a partial equals implementation for the Stub.</div>
+</li>
+</ul>
+<a name="stubToString()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>stubToString</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stubToString()</pre>
+<div class="block">Returns a partial toString implementation for the Stub.</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/StubSupport.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/cojen/dirmi/core/StubFactoryGenerator.html" title="class in org.cojen.dirmi.core"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/cojen/dirmi/core/VersionedIdentifier.html" title="class in org.cojen.dirmi.core"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/cojen/dirmi/core/StubSupport.html" target="_top">Frames</a></li>
+<li><a href="StubSupport.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &#169; 2006-2013 <a href="https://github.com/cojen">Cojen</a>. All Rights Reserved.</small></p>
+</body>
+</html>
