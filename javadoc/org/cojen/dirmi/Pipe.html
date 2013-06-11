@@ -101,7 +101,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html
  the session is open, and all pipes are closed when the session is
  closed. Here's an example remote method declaration which uses a pipe:
 
- <pre>
+ <p><pre>
  <b>&#64;Asynchronous</b>
  <b>Pipe</b> uploadFile(String name, <b>Pipe</b> pipe) throws RemoteException;
  </pre>
@@ -111,7 +111,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html
  method simply passes null for the pipe parameter, and the server-side
  implementation returns null instead of a pipe. Example client call:
 
- <pre>
+ <p><pre>
      Pipe pipe = server.uploadFile("notes.txt", null);
      byte[] notes = ...
      pipe.writeInt(notes.length);
@@ -121,7 +121,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html
 
  The remote method implementation might look like this:
 
- <pre>
+ <p><pre>
  public Pipe uploadFile(String name, Pipe pipe) {
      byte[] notes = new byte[pipe.readInt()];
      pipe.readFully(notes);
@@ -152,7 +152,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html
  the pipe implicitly flushes it. If the server is required to return a value
  over the pipe, then the client call might be written as:
 
- <pre>
+ <p><pre>
      Pipe pipe = server.uploadFile("notes.txt", null);
      byte[] notes = ...
      pipe.writeInt(notes.length);

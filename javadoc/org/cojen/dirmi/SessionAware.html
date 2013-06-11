@@ -91,7 +91,7 @@
 <div class="block">Remote objects implementing this interface can access the current session <a href="../../../org/cojen/dirmi/Link.html" title="interface in org.cojen.dirmi"><code>link</code></a> which is making a remote method invocation. To access the link, call <a href="../../../org/cojen/dirmi/SessionAccess.html#current()"><code>SessionAccess.current()</code></a> from within a remote method implementation. Because extra
  overhead is required for supporting this feature, it is not enabled by default.
 
- <pre>
+ <p><pre>
  public class RemoteLoginServer implements RemoteLogin, <b>SessionAware</b> {
      RemoteApp login(String username, char[] password) throws AuthException {
          Link session = <b>SessionAccess.current();</b>

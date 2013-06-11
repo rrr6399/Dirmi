@@ -90,7 +90,7 @@ public @interface <span class="strong">RemoteFailure</span></pre>
 <div class="block">Annotate a remote method or interface to specify what exception is to be
  used to indicate a remote call failure. By default, it is <a href="http://docs.oracle.com/javase/7/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi"><code>RemoteException</code></a>, and it must be declared to be thrown.
 
- <pre>
+ <p><pre>
  <b>&#64;RemoteFailure(exception=SQLException.class)</b>
  int executeUpdate(String sql) throws SQLException;
  </pre></div>
