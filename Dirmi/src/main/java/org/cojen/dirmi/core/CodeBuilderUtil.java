@@ -112,7 +112,8 @@ class CodeBuilderUtil {
         }
         */
 
-        return new RuntimeClassFile(name, null, loader);
+        final ClassLoader bridgeLoader = BridgeLoaderFactory.getInstance().getBridgeLoader(loader);
+        return new RuntimeClassFile(name, null, bridgeLoader);
     }
 
     /**
