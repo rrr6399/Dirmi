@@ -2315,7 +2315,8 @@ public class StandardSession implements Session {
               chosen. If an object is Serializable, it cannot be Remote.
             */
 
-            if (obj instanceof Remote && !(obj instanceof Serializable)) {
+            //if (obj instanceof Remote && !(obj instanceof Serializable)) {
+            if (obj instanceof Remote) {
                 Remote remote = (Remote) obj;
                 VersionedIdentifier objId = VersionedIdentifier.identify(remote);
 
