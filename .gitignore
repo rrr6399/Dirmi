@@ -1,2 +1,5 @@
 /Dirmi/maven.bat
 /Dirmi/target
+/nbproject/private/
+/build/
+/dist/
