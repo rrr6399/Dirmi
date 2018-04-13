@@ -63,7 +63,12 @@ class ClassLoaderResolver implements ClassResolver {
               system class loader, but at least the runtime behavior will be
               consistent.
             */
-            clazz = Class.forName(name);
+			try {
+    			ClassLoader loader = Thread.currentThread().getContextClassLoader();
+				clazz = Class.forName(name, true, loader);
+			} catch (ClassNotFoundException cnfe) {
+            	clazz = Class.forName(name);
+			}
         } else {
             clazz = Class.forName(name, true, mLoader);
         }
